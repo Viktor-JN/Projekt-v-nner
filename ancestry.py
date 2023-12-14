@@ -1,5 +1,5 @@
 '''
-FILNAMN.PY: Skapa ditt släktträd!
+ancestry.py: Skapa ditt släktträd!
 
 __author__  = "Viktor Johansson Nygren"
 __version__ = "1.0.0"
