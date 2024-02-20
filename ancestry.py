@@ -64,6 +64,18 @@ def sortera(): #funktion för att sortera listan
         os.system('cls')
         ancestry.sort() #sorterar listan
 
+def edit():
+    print("Vad vill du ändra i släktträdet?")
+    editChoice=getwch().upper() #användaren väljer vart i listan
+    try:
+        editChoice=int(editChoice)
+        newName=input("Vad vill du ändra det till\n") #användaren väljer vad det nya namnet ska vara i listan
+        ancestry[int(editChoice)-1]=newName #byter ut till vad användaren skrev in
+    except:
+        os.system('cls')
+        print("Du måste skriva ett nummer när du väljer vad i listan du vill ändra")
+        sleep(2)
+
 ancestry=[] #skapar listan som man lägger in användarens val i
 
 while True:
@@ -79,8 +91,10 @@ while True:
     print("""Hur vill du redigera ditt släktträd
 Lägg till/a
 Ta bort/r
+Redigera/e
 Sortera/s
 Avsluta/q\n""")
+    nummer=1
     y=getwch().upper() #tar användarens knapptryck så de kan välja vad de vill göra
     if y.upper() == "A":
         os.system('cls')
@@ -93,6 +107,17 @@ Avsluta/q\n""")
         else:
             os.system('cls')
             remove() #starta funktionen för att ta bort någonting från listan
+    elif y.upper() == "E":
+        if len(ancestry) == 0: #kollar om listan är tom så när någon ska ta bort
+            os.system('cls')
+            print("Du kan inte ändra en lista utan någonting i")
+            sleep(2)
+        else:
+            os.system('cls')
+            for x in ancestry: #skriver ut hela listan med allt innehåll och vilken position de har i släktträdet
+                print(nummer, x)
+                nummer+=1
+            edit() #starta funktionen för att redigera någonting från listan
     elif y.upper() == "Q":
         print("Hej då!")
         exit()
@@ -101,5 +126,5 @@ Avsluta/q\n""")
         sortera() #starta funktionen för att sortera listan
     else: #om man klickar på en knapp som inte gör något så får man välja igen
         os.system('cls')
-        print("Välj någonting från listan")
+        print("Välj hur du vill redigera listan")
         sleep(2)
