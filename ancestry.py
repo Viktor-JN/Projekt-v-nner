@@ -69,13 +69,13 @@ def edit():
     editChoice=getwch().upper() #användaren väljer vart i listan
     try:
         editChoice=int(editChoice)
-        newName=input("Vad vill du ändra det till\n") #användaren väljer vad det nya namnet ska vara i listan
-        ancestry[int(editChoice)-1]=newName #byter ut till vad användaren skrev in
     except:
         os.system('cls')
         print("Du måste skriva ett nummer när du väljer vad i listan du vill ändra")
         sleep(2)
-
+    newName=input("Vad vill du ändra det till\n") #användaren väljer vad det nya namnet ska vara i listan
+    ancestry[int(editChoice)-1]=newName #byter ut till vad användaren skrev in
+    
 ancestry=[] #skapar listan som man lägger in användarens val i
 
 while True:
